@@ -20,7 +20,7 @@ gclient sync
 ==Generate the build files==
 Now we use the GYP library to generate the build files.
 
-At this point, you have two options. The first is to generate platform-specific build files, i.e. Makefiles on Linux, sln files on Windows, and xcodeproj files on Mac.
+At this point, you have two options. The first option is to use the [http://martine.github.io/ninja/ Ninja] build system. This is the default as of mid-September, 2015. Previously, the second option was the default. Most PDFium developers use Ninja, as does our [http://build.chromium.org/p/client.pdfium/ continuous build system].
 
 On Windows:
 {{{
@@ -31,8 +31,7 @@ For all other platforms:
 build/gyp_pdfium
 }}}
 
-The second option is to use the [http://martine.github.io/ninja/ Ninja] build system. To do so, set the GYP_GENERATORS environment variable to 'ninja' before running the above command.
-
+The second option is to generate platform-specific build files, i.e. Makefiles on Linux, sln files on Windows, and xcodeproj files on Mac. To do so, set the GYP_GENERATORS environment variable appropriately (e.g. "make", "msvs", or "xcode") before running the above command.
 
 ==Building the code==
 If you used Ninja, you can build the sample program by:
